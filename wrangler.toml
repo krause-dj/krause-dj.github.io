@@ -1,0 +1,5 @@
+name = "praxisdj-website"
+compatibility_date = "2025-09-12"
+
+[assets]
+directory = "./out"

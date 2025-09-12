@@ -21,7 +21,7 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "DJ",
+  title: "djonathan.com",
   description: "Djonathan Krause",
 }
 

@@ -67,7 +67,7 @@ export default function DJPortfolio() {
                   Hi, you can call me <span className="text-primary font-semibold">DJ!</span> • Software Engineer
                 </p>
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => window.open("/cv.pdf", "_blank")}>
                     <Download className="mr-2 h-5 w-5" />
                     Resume
                   </Button>
