@@ -113,6 +113,16 @@ export default function DJPortfolio() {
                 <Card
                   key={index}
                   className="p-6 bg-card border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 group cursor-pointer relative overflow-hidden"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Open ${project.title}`}
+                  onClick={() => window.open(project.link, "_blank")}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault()
+                      window.open(project.link, "_blank")
+                    }
+                  }}
                   onMouseEnter={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect()
                     const x = ((e.clientX - rect.left) / rect.width) * 100
@@ -131,7 +141,10 @@ export default function DJPortfolio() {
                     <Button
                       variant="ghost"
                       className="w-full justify-between text-primary hover:bg-primary hover:text-primary-foreground"
-                      onClick={() => window.open(project.link, '_blank')}
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        window.open(project.link, "_blank")
+                      }}
                     >
                       View Project
                       <ExternalLink className="h-4 w-4" />
@@ -140,7 +153,10 @@ export default function DJPortfolio() {
                       <Button
                         variant="ghost"
                         className="w-full justify-between text-muted-foreground hover:text-primary hover:bg-primary/10"
-                        onClick={() => window.open(project.repo, '_blank')}
+                        onClick={(event) => {
+                          event.stopPropagation()
+                          window.open(project.repo, "_blank")
+                        }}
                       >
                         View Code
                         <Github className="h-4 w-4" />

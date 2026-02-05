@@ -1,0 +1,12 @@
+---
+description: Data files and TypeScript conventions
+globs: "data/**/*.ts,**/*.ts,**/*.tsx"
+alwaysApply: false
+---
+
+# Data & TypeScript
+
+- **Data files** live in `data/` and export const arrays/objects (e.g. `projects`, `socialNetworks`). Use clear property names: `title`, `description`, `link`, `repo` for projects; `name`, `icon`, `url`, `color` for social entries.
+- **Imports**: Use path alias `@/` (e.g. `@/data/PROJECTS`, `@/components/ui/button`). No relative imports like `../data/` when `@/data/` is available.
+- **Types**: Keep strict TypeScript. Prefer inferred types from data; add explicit types for props and API boundaries when needed.
+- **Naming**: PascalCase for components and types; camelCase for variables, props, and file exports (e.g. `socialNetworks`, `projects`).

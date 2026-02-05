@@ -1,0 +1,13 @@
+---
+description: Styling and UI conventions (Tailwind, shadcn, design tokens)
+globs: "**/*.tsx,**/*.css"
+alwaysApply: false
+---
+
+# Styling
+
+- Use **Tailwind** for layout and styling. Merge classes with **`cn()`** from `@/lib/utils` when combining conditional or component classes.
+- Prefer **design tokens** from `app/globals.css`: `text-foreground`, `text-muted-foreground`, `bg-background`, `bg-card`, `border-border`, `text-primary`, `hover:bg-primary`, etc. Avoid arbitrary hex in class names.
+- **shadcn/ui**: Use components from `@/components/ui/`. They already use `cn()` and token-based variants (e.g. Button `variant="ghost"`). Add new components via `components.json` (new-york, no prefix).
+- **Custom CSS**: Add keyframes and utility classes in `app/globals.css` (e.g. `float-animation`, `glow-animation`). Use `@theme inline` and `:root`/`.dark` variables for tokens.
+- **Icons**: Lucide React from `lucide-react` (aligned with components.json).

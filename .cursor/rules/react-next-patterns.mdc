@@ -1,0 +1,14 @@
+---
+description: React and Next.js patterns for this codebase
+globs: "**/*.tsx,**/*.ts"
+alwaysApply: false
+---
+
+# React & Next.js patterns
+
+- Use **functional components** and default exports for pages.
+- Add `"use client"` only when using hooks, browser APIs, or client-only UI (e.g. `useState`, `useEffect`, event handlers that need hydration).
+- Keep **layout and metadata** in server components (`app/layout.tsx`); move client-only UI into client components.
+- **Data**: Import from `@/data/` (e.g. `projects`, `socialNetworks`). Do not hardcode content that belongs in data files.
+- **Links**: Use `<a href="..." target="_blank" rel="noopener noreferrer">` for external links; `window.open(url, '_blank')` is used for buttons in the current page.
+- Prefer semantic HTML and accessibility (e.g. `alt` on images, `title` on icon links).

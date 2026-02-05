@@ -1,0 +1,12 @@
+---
+description: Stack, tooling, and project structure for praxisdj.github.io
+alwaysApply: true
+---
+
+# Project overview
+
+- **Framework**: Next.js 14 (App Router), React 19. Static export (`output: 'export'`), trailing slashes, unoptimized images for GitHub Pages.
+- **Runtime**: Prefer **Bun** for install, run, and scripts (see workspace CLAUDE.md).
+- **Styling**: Tailwind CSS v4, shadcn/ui (new-york style), CSS variables in `app/globals.css`. Design: dark theme, gold primary (`#ffcc00`), semantic tokens (e.g. `primary`, `muted-foreground`, `card`, `border`).
+- **Paths**: `@/` maps to project root (e.g. `@/components`, `@/lib/utils`, `@/data/...`).
+- **Structure**: `app/` for routes and layout; `components/` for shared UI (including `components/ui/` from shadcn); `data/` for content (PROJECTS, SOCIAL_NETWORKS); `lib/` for utilities; `public/` for static assets.
