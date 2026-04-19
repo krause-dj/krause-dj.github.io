@@ -10,7 +10,7 @@
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/praxisdj",
+      url: "https://github.com/krause-dj",
       color: "hover:text-gray-300",
     },
     {
