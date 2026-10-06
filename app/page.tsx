@@ -1,60 +1,30 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { Linkedin, Mail } from "lucide-react"
+import { ArrowUpRight, Linkedin, Mail } from "lucide-react"
 
 const contacts = [
-  { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/djonathan-krause-8981a788/", color: "hover:text-blue-400" },
-  { name: "email@djonathan.com", icon: Mail, url: "mailto:email@djonathan.com", color: "hover:text-primary" },
+  { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/djonathan-krause-8981a788/" },
+  { name: "email@djonathan.com", icon: Mail, url: "mailto:email@djonathan.com" },
 ]
 
-const highlightClass = "text-primary font-semibold hover:underline underline-offset-4"
-
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    setIsVisible(true)
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      })
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
-
   return (
-    <main
-      className="min-h-screen bg-background relative overflow-hidden flex items-center px-6"
-      style={{
-        background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(255, 215, 0, 0.03), transparent 40%)`,
-      }}
-    >
-      <div
-        className={`max-w-6xl mx-auto w-full transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
-      >
-        <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-balance">
-          <span className="text-foreground">Djonathan</span>
-          <br />
-          <span className="text-primary">Krause</span>
+    <main className="min-h-screen bg-black p-3 sm:p-5">
+      <div className="min-h-[calc(100vh-1.5rem)] sm:min-h-[calc(100vh-2.5rem)] rounded-3xl border border-white/10 flex flex-col items-center justify-center gap-10 px-6 py-16 text-center">
+        <h1 className="text-5xl sm:text-7xl font-semibold tracking-tighter text-white">
+          Djonathan <span className="text-primary">Krause</span>
         </h1>
-        <p className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-3xl text-pretty leading-relaxed">
-          Currently at{" "}
-          <a href="https://soci.ai" target="_blank" rel="noopener noreferrer" className={highlightClass}>
-            soci.ai
-          </a>{" "}
-          creating the tech support workflow, and building{" "}
-          <a href="https://euler.software" target="_blank" rel="noopener noreferrer" className={highlightClass}>
+        <p className="max-w-xl text-lg sm:text-xl leading-relaxed text-white/60 text-pretty">
+          Currently at soci.ai creating the tech support workflow, and building{" "}
+          <a
+            href="https://euler.software"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white"
+          >
             euler.software
           </a>{" "}
           to bring modern engineering and AI to supply chain software.
         </p>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
           {contacts.map((contact) => {
             const Icon = contact.icon
             return (
@@ -63,10 +33,11 @@ export default function Home() {
                 href={contact.url}
                 target={contact.url.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className={`flex items-center gap-2 h-12 px-4 rounded-lg bg-card border border-border hover:border-primary transition-all duration-300 ${contact.color}`}
+                className="flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-sm text-white transition-colors hover:border-white hover:bg-white hover:text-black"
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-4 w-4" strokeWidth={1.5} />
                 {contact.name}
+                <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.5} />
               </a>
             )
           })}
