@@ -1,32 +1,29 @@
 import type { CSSProperties, ReactNode } from "react"
-import { Linkedin, Mail, type LucideIcon } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
-function InlineLink({
-  href,
-  icon: Icon,
-  badge,
-  children,
-}: {
-  href: string
-  icon?: LucideIcon
-  badge?: string
-  children: ReactNode
-}) {
+function Row({ label, children, index }: { label: string; children: ReactNode; index: number }) {
+  return (
+    <section className="rise grid gap-1 sm:grid-cols-[7rem_1fr] sm:gap-6" style={step(index)}>
+      <h2 className="text-neutral-400">{label}</h2>
+      <div className="space-y-2">{children}</div>
+    </section>
+  )
+}
+
+function OutLink({ href, children }: { href: string; children: ReactNode }) {
   const external = href.startsWith("http")
   return (
     <a
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="inline-flex items-baseline gap-1 font-medium text-neutral-100 transition-colors hover:text-primary"
+      className="group inline-flex items-center gap-0.5 text-neutral-900 underline decoration-neutral-300 underline-offset-[3px] transition-colors hover:decoration-neutral-900"
     >
-      {Icon && <Icon className="h-3.5 w-3.5 self-center" strokeWidth={1.75} />}
-      {badge && (
-        <span className="grid h-3.5 w-3.5 self-center place-items-center rounded-[3px] bg-neutral-100 text-[9px] font-semibold text-black">
-          {badge}
-        </span>
-      )}
       {children}
+      <ArrowUpRight
+        className="h-3.5 w-3.5 text-neutral-400 transition-transform group-hover:-translate-y-px group-hover:translate-x-px group-hover:text-neutral-900"
+        strokeWidth={1.75}
+      />
     </a>
   )
 }
@@ -35,35 +32,31 @@ const step = (i: number): CSSProperties => ({ animationDelay: `${i * 90}ms` })
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] px-6 py-24 sm:py-40 text-[15px] leading-relaxed text-neutral-400 antialiased">
-      <div className="mx-auto max-w-[34rem] space-y-8">
-        <header className="rise flex items-center gap-3" style={step(0)}>
-          <img src="/images/dj-avatar-96.png" alt="" className="h-9 w-9 rounded-full bg-neutral-800" />
-          <div className="leading-tight">
-            <h1 className="font-medium text-neutral-100">Djonathan Krause</h1>
-            <p className="text-neutral-500">Software Engineer</p>
-          </div>
+    <main className="min-h-screen bg-[#fbfbfa] px-6 py-24 sm:py-40 text-[14px] leading-relaxed text-neutral-600 antialiased">
+      <div className="mx-auto max-w-[36rem] space-y-14">
+        <header className="rise" style={step(0)}>
+          <h1 className="font-medium text-neutral-900">Djonathan Krause</h1>
+          <p className="text-neutral-400">Software Engineer</p>
         </header>
 
-        <p className="rise" style={step(1)}>
-          Currently at soci.ai creating the tech support workflow, and building{" "}
-          <InlineLink href="https://euler.software" badge="E">
-            euler.software
-          </InlineLink>{" "}
-          to bring modern engineering and AI to supply chain software.
-        </p>
+        <Row label="Now" index={1}>
+          <p>
+            Currently at soci.ai creating the tech support workflow, and building{" "}
+            <OutLink href="https://euler.software">euler.software</OutLink> to bring modern engineering and AI
+            to supply chain software.
+          </p>
+        </Row>
 
-        <p className="rise" style={step(2)}>
-          You can find me on{" "}
-          <InlineLink href="https://www.linkedin.com/in/djonathan-krause-8981a788/" icon={Linkedin}>
-            LinkedIn
-          </InlineLink>{" "}
-          or reach me via{" "}
-          <InlineLink href="mailto:email@djonathan.com" icon={Mail}>
-            email
-          </InlineLink>
-          .
-        </p>
+        <Row label="Contact" index={2}>
+          <ul className="space-y-1">
+            <li>
+              <OutLink href="https://www.linkedin.com/in/djonathan-krause-8981a788/">LinkedIn</OutLink>
+            </li>
+            <li>
+              <OutLink href="mailto:email@djonathan.com">email@djonathan.com</OutLink>
+            </li>
+          </ul>
+        </Row>
       </div>
     </main>
   )
