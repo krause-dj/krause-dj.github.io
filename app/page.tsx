@@ -46,7 +46,9 @@ export default function Home() {
           <h1 className="text-2xl text-neutral-100">
             djonathan krause<span className="cursor text-primary">_</span>
           </h1>
-          <p className="text-neutral-600">software engineer</p>
+          <p className="text-neutral-600">
+            call me <span className="text-primary">dj</span> · software engineer
+          </p>
         </header>
 
         <p className="rise" style={step(1)}>
