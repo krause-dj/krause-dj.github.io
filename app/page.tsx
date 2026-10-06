@@ -9,6 +9,8 @@ const LINKEDIN = "https://www.linkedin.com/in/djonathan-krause-8981a788/"
 const linkClass =
   "text-neutral-100 underline decoration-neutral-700 underline-offset-4 hover:text-primary hover:decoration-primary"
 
+const Ai = () => <span className="text-primary">ai</span>
+
 const step = (i: number): CSSProperties => ({ animationDelay: `${i * 90}ms` })
 
 export default function Home() {
@@ -52,20 +54,15 @@ export default function Home() {
         </header>
 
         <p className="rise" style={step(1)}>
-          currently at{" "}
+          building{" "}
+          <a href="https://euler.software" target="_blank" rel="noopener noreferrer" className={linkClass}>
+            euler.software
+          </a>
+          , bringing modern engineering and <Ai /> to supply chain. by day, shaping tech support <Ai /> agents at{" "}
           <a href="https://soci.ai" target="_blank" rel="noopener noreferrer" className={linkClass}>
             soci.ai
-          </a>{" "}
-          creating the tech support workflow, and building{" "}
-          <a
-            href="https://euler.software"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={linkClass}
-          >
-            euler.software
-          </a>{" "}
-          to bring modern engineering and ai to supply chain software.
+          </a>
+          .
         </p>
 
         <nav className="rise flex gap-6" style={step(2)}>

@@ -7,7 +7,7 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "djonathan.com",
   description:
-    "Djonathan Krause. Currently at soci.ai creating the tech support workflow, and building euler.software to bring modern engineering and AI to supply chain software.",
+    "DJ (Djonathan Krause). Building euler.software, bringing modern engineering and AI to supply chain. By day, shaping tech support AI agents at soci.ai.",
 }
 
 export default function RootLayout({
