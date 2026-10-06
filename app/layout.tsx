@@ -22,7 +22,8 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "djonathan.com",
-  description: "Djonathan Krause",
+  description:
+    "Djonathan Krause. Currently at soci.ai creating the tech support workflow, and building euler.software to bring modern engineering and AI to supply chain software.",
 }
 
 export default function RootLayout({
